@@ -1,0 +1,29 @@
+{
+    "data":[
+        {
+            "date":"2002-08-21",
+            "service":"Culto de Domingo",
+            "preacher":"Ap. Amaury"
+        },
+        {
+            "date":"2002-08-19",
+            "service":"Shabbat",
+            "preacher":"Ap. Amaury"
+        },
+        {
+            "date":"2002-08-14",
+            "service":"Culto de Domingo",
+            "preacher":"Bp. Ricardo"
+        },
+        {
+            "date":"2002-08-12",
+            "service":"Shabbat",
+            "preacher":"Henrique Lima"
+        },
+        {
+            "date":"2002-08-07",
+            "service":"Culto de Domingo",
+            "preacher":"Ap. Joseir"
+        }
+    ]
+}
