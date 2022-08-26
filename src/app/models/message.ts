@@ -5,6 +5,7 @@ export interface Message{
     date: string;
     service: string;
     preacher: Preacher;
+    file_url: string;
 }
 
 export type Messages = Array<Message>;
