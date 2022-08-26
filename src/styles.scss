@@ -5,9 +5,14 @@
 }
 
 html{
-    background-image: linear-gradient(var(--indigo-900), black);
+    background-image: linear-gradient(var(--indigo-900), #121212);
     background-repeat: no-repeat;
     height: 100%;
+}
+
+body{
+    padding: 0;
+    margin: 0;
 }
 
 h1{

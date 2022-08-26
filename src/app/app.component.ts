@@ -1,6 +1,7 @@
 import { Component } from '@angular/core';
 import messages from './data/messages.json';
-import { Messages } from './models/message';
+import { Message, Messages } from './models/message';
+import { ApiService } from './services/api.service';
 
 @Component({
   selector: 'app-root',
@@ -8,7 +9,18 @@ import { Messages } from './models/message';
   styleUrls: ['./app.component.scss']
 })
 export class AppComponent {
+  
+  constructor(private api: ApiService){}
   title = 'Kehilah Shalom';
   
-  public messages: Messages = messages.data;
+  public messages!: Message[];
+  
+  ngOnInit(){
+    this.api.getMessages()
+    .subscribe(
+      res => {this.messages = res; console.log(this.messages);}
+      
+    )
+    
+  }
 }

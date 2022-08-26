@@ -1,4 +1,4 @@
-<div class="p-4">
+<div class="p-5">
   <div class="text-center p-6 pt-4 pb-2">
     <fa-icon
       [icon]="['fat', 'menorah']"
@@ -17,5 +17,6 @@
   <div *ngFor="let message of messages">
     <app-message [message]="message"></app-message>
   </div>
-  <router-outlet></router-outlet>
 </div>
+
+<app-player></app-player>

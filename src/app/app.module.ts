@@ -5,9 +5,11 @@ import { AppRoutingModule } from './app-routing.module';
 import { AppComponent } from './app.component';
 
 import { FontAwesomeModule, FaIconLibrary } from '@fortawesome/angular-fontawesome';
+import { faMenorah } from '@fortawesome/pro-thin-svg-icons';
 
 import { MessagesModule } from './modules/messages/messages.module';
-import { faMenorah } from '@fortawesome/pro-thin-svg-icons';
+import { PlayerModule } from './modules/player/player.module';
+
 
 
 @NgModule({
@@ -18,7 +20,8 @@ import { faMenorah } from '@fortawesome/pro-thin-svg-icons';
     BrowserModule,
     AppRoutingModule,
     FontAwesomeModule,
-    MessagesModule
+    MessagesModule,
+    PlayerModule
   ],
   providers: [],
   bootstrap: [AppComponent]
