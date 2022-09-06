@@ -1,4 +1,5 @@
 import { Component } from '@angular/core';
+import { ActivatedRoute } from '@angular/router';
 import messages from './data/messages.json';
 import { Message, Messages } from './models/message';
 import { ApiService } from './services/api.service';
@@ -10,17 +11,6 @@ import { ApiService } from './services/api.service';
 })
 export class AppComponent {
   
-  constructor(private api: ApiService){}
+  constructor(private api: ApiService, private activatedRoute: ActivatedRoute){}
   title = 'Kehilah Shalom';
-  
-  public messages!: Message[];
-  
-  ngOnInit(){
-    this.api.getMessages()
-    .subscribe(
-      res => {this.messages = res; console.log(this.messages);}
-      
-    )
-    
-  }
 }

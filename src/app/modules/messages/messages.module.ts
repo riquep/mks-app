@@ -6,11 +6,13 @@ import { MessagesRoutingModule } from './messages-routing.module';
 import { MessageComponent } from './message/message.component';
 
 import {ButtonModule} from 'primeng/button';
+import { MessagesListComponent } from './messages-list/messages-list.component';
 
 
 @NgModule({
   declarations: [
-    MessageComponent
+    MessageComponent,
+    MessagesListComponent
   ],
   imports: [
     CommonModule,
@@ -19,7 +21,8 @@ import {ButtonModule} from 'primeng/button';
     ButtonModule
   ],
   exports:[
-    MessageComponent
+    MessageComponent,
+    MessagesListComponent
   ]
 })
 export class MessagesModule { }

@@ -9,12 +9,14 @@ import { faMenorah } from '@fortawesome/pro-thin-svg-icons';
 
 import { MessagesModule } from './modules/messages/messages.module';
 import { PlayerModule } from './modules/player/player.module';
+import { HomePageComponent } from './modules/home-page/home-page.component';
 
 
 
 @NgModule({
   declarations: [
-    AppComponent
+    AppComponent,
+    HomePageComponent,
   ],
   imports: [
     BrowserModule,

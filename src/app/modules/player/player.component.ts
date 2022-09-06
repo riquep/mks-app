@@ -1,6 +1,8 @@
-import { Component, OnInit } from '@angular/core';
+import { Component, Input, OnInit } from '@angular/core';
 import { AudioService } from "../../services/audio.service";
 import { StreamState } from "../../models/stream-state";
+import { Message, Messages } from 'src/app/models/message';
+import { ActivatedRoute } from '@angular/router';
 
 @Component({
   selector: 'app-player',
@@ -10,9 +12,11 @@ import { StreamState } from "../../models/stream-state";
 
 export class PlayerComponent implements OnInit {
   
-  public files: Array<any> = [];
+  @Input()
+  public files!: Messages;
   public state!: StreamState;
-  public currentFile: any = {};
+  @Input()
+  public currentFile: any = {}; 
 
   constructor(private audioService: AudioService) {
     this.audioService.getState().subscribe(state => {
@@ -21,6 +25,7 @@ export class PlayerComponent implements OnInit {
    }
 
   ngOnInit(): void {
+
   }
   
   playStream(url: string) {
@@ -29,10 +34,10 @@ export class PlayerComponent implements OnInit {
     });
   }
   
-  openFile(file: any, index: any) {
+  openFile(file: Message, index: any) {
     this.currentFile = { index, file };
     this.audioService.stop();
-    this.playStream(file.url);
+    this.playStream(file.file_url);
   }
   
   pause() {
