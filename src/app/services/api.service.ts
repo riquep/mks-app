@@ -9,8 +9,8 @@ import { environment } from 'src/environments/environment';
 })
 export class ApiService {
   
-  private supabaseUrl: any = environment.supabaseUrl;
-  private supabaseKey: any = environment.supabaseKey;
+  private supabaseUrl: string = environment.supabaseUrl;
+  private supabaseKey: string = environment.supabaseKey;
   private supabase!: SupabaseClient;
   
   constructor() {
