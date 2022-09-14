@@ -10,6 +10,7 @@ import { faMenorah } from '@fortawesome/pro-thin-svg-icons';
 import { MessagesModule } from './modules/messages/messages.module';
 import { PlayerModule } from './modules/player/player.module';
 import { HomePageComponent } from './modules/home-page/home-page.component';
+import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
 
 
 
@@ -23,7 +24,8 @@ import { HomePageComponent } from './modules/home-page/home-page.component';
     AppRoutingModule,
     FontAwesomeModule,
     MessagesModule,
-    PlayerModule
+    PlayerModule,
+    BrowserAnimationsModule
   ],
   providers: [],
   bootstrap: [AppComponent]
