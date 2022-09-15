@@ -4,6 +4,15 @@ import { StreamState } from '../../models/stream-state';
 import { Message, Messages } from 'src/app/models/message';
 import { ActivatedRoute } from '@angular/router';
 
+import {
+  faBackward,
+  faForward,
+  faPlay,
+  faPause,
+  faCaretUp,
+  faCaretDown,
+} from '@fortawesome/pro-duotone-svg-icons';
+
 @Component({
   selector: 'app-player',
   templateUrl: './player.component.html',
@@ -15,6 +24,14 @@ export class PlayerComponent implements OnInit {
   public state!: StreamState;
   @Input()
   public currentFile: any = {};
+
+  faPlay = faPlay;
+  faPause = faPause;
+  faForward = faForward;
+  faBackward = faBackward;
+  faWindowSize = faCaretUp;
+
+  playerFull: boolean = true;
 
   constructor(private audioService: AudioService) {
     this.audioService.getState().subscribe((state) => {
@@ -72,5 +89,15 @@ export class PlayerComponent implements OnInit {
 
   onSliderChangeEnd(change: any) {
     this.audioService.seekTo(change.value);
+  }
+
+  togglePlayer() {
+    if (!this.playerFull) {
+      this.playerFull = true;
+      this.faWindowSize = faCaretDown;
+    } else {
+      this.playerFull = false;
+      this.faWindowSize = faCaretUp;
+    }
   }
 }

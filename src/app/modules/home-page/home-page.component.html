@@ -1,14 +1,8 @@
-<div class="p-5">
+<div class="p-5 pb-8">
   <div class="text-center p-4">
     <img src="../../../assets/logo-mks.svg" class="h-22rem" />
   </div>
 
-  <p class="text-indigo-100 py-5 text-justify font-light">
-    Pellentesque ornare mauris ac orci varius, id venenatis libero dictum. Cras
-    in neque nec ex rhoncus scelerisque. Interdum et malesuada fames ac ante
-    ipsum primis in faucibus. Suspendisse facilisis libero dui, sed ultrices
-    orci auctor in.
-  </p>
   <div *ngFor="let message of messages">
     <app-message
       [message]="message"

@@ -1,53 +1,94 @@
-<div class="fixed bottom-0 w-full">
-  <div class="bg-indigo-900 m-3 mb-0 p-4 pb-3 border-round-top-2xl">
-    <div class="pb-5 pt-2">
-      <small
-        >{{ currentFile.file?.service }} - {{ currentFile.file?.date }}</small
-      >
-      {{ currentFile.file?.preacher.name }}
-    </div>
-    <div>
-      <mat-slider
-        class="w-full pt-0 mt-0"
-        [min]="0"
-        [max]="state.duration"
-        [step]="1"
-        [value]="state.currentTime"
-        (input)="onSliderChangeEnd($event)"
-        [disabled]="state.error || currentFile.index === undefined"
-      ></mat-slider>
-    </div>
+<div class="fixed bottom-0 w-full" *ngIf="currentFile.file">
+  <div class="bg-indigo-800 m-3 p-4 border-round-2xl">
     <div class="flex justify-content-between">
-      <div class="h-1rem">{{ state.readableCurrentTime }}</div>
-      <div class="h-1rem">{{ state.readableDuration }}</div>
+      <div>
+        <small class="text-sm font-italic text-indigo-100 font-light"
+          >{{ currentFile.file?.service }} - {{ currentFile.file?.date }}</small
+        >
+        <span class="block">{{ currentFile.file?.preacher.name }}</span>
+      </div>
+      <div>
+        <button
+          mat-button
+          type="button"
+          [disabled]="state.error"
+          (click)="togglePlayer()"
+          class="border-none text-indigo-100 bg-indigo-800 p-0"
+        >
+          <fa-icon
+            [icon]="faWindowSize"
+            size="2x"
+            [fixedWidth]="true"
+          ></fa-icon>
+        </button>
+      </div>
     </div>
-    <div class="grid">
-      <div class="col-4 text-right">
-        <button
-          pButton
-          pRipple
-          type="button"
-          icon="pi pi-backward"
-          class="p-button-outlined p-button-rounded"
-        ></button>
+    <div *ngIf="playerFull">
+      <div class="py-3">
+        <mat-slider
+          class="w-full pt-0 mt-0"
+          [min]="0"
+          [max]="state.duration"
+          [step]="1"
+          [value]="state.currentTime"
+          (input)="onSliderChangeEnd($event)"
+          [disabled]="state.error || currentFile.index === undefined"
+        ></mat-slider>
+        <div
+          class="flex justify-content-between text-sm text-indigo-100 px-3 -mt-2"
+        >
+          <div class="h-1rem">{{ state.readableCurrentTime }}</div>
+          <div class="h-1rem">{{ state.readableDuration }}</div>
+        </div>
       </div>
-      <div class="col-4 text-center">
-        <button
-          pButton
-          pRipple
-          type="button"
-          icon="pi pi-play"
-          class="p-button-outlined p-button-rounded"
-        ></button>
-      </div>
-      <div class="col-4 text-left">
-        <button
-          pButton
-          pRipple
-          type="button"
-          icon="pi pi-forward"
-          class="p-button-outlined p-button-rounded"
-        ></button>
+      <div class="grid pt-2">
+        <div class="col-4 text-right">
+          <button
+            mat-button
+            type="button"
+            [disabled]="state.error"
+            class="border-none text-indigo-100 bg-indigo-800 py-3"
+          >
+            <fa-icon
+              [icon]="faBackward"
+              size="2x"
+              [fixedWidth]="true"
+            ></fa-icon>
+          </button>
+        </div>
+        <div class="col-4 text-center">
+          <button
+            mat-button
+            type="button"
+            (click)="play()"
+            [disabled]="state.error"
+            *ngIf="!state.playing"
+            class="border-none text-indigo-100 bg-indigo-800 py-2"
+          >
+            <fa-icon [icon]="faPlay" size="3x" [fixedWidth]="true"></fa-icon>
+          </button>
+
+          <button
+            mat-button
+            type="button"
+            (click)="pause()"
+            [disabled]="state.error"
+            *ngIf="state.playing"
+            class="border-none text-indigo-100 bg-indigo-800 py-2"
+          >
+            <fa-icon [icon]="faPause" size="3x" [fixedWidth]="true"></fa-icon>
+          </button>
+        </div>
+        <div class="col-4 text-left">
+          <button
+            mat-button
+            type="button"
+            [disabled]="state.error"
+            class="border-none text-indigo-100 bg-indigo-800 pt-3"
+          >
+            <fa-icon [icon]="faForward" size="2x" [fixedWidth]="true"></fa-icon>
+          </button>
+        </div>
       </div>
     </div>
   </div>

@@ -6,26 +6,22 @@ import { PlayerComponent } from '../player/player.component';
 @Component({
   selector: 'app-home-page',
   templateUrl: './home-page.component.html',
-  styleUrls: ['./home-page.component.scss']
+  styleUrls: ['./home-page.component.scss'],
 })
 export class HomePageComponent implements OnInit {
-
-  constructor(private activatedRoute: ActivatedRoute) { }
+  constructor(private activatedRoute: ActivatedRoute) {}
 
   public messages!: Messages;
   @ViewChild(PlayerComponent)
   public playerComponent!: PlayerComponent;
-  
-  ngOnInit(){
+
+  ngOnInit() {
     this.activatedRoute.params.subscribe((res) => {
       this.messages = this.activatedRoute.snapshot.data['messages'];
-    })    
-   
-  } 
-  
-  public openMessage(message: Message){
-    this.playerComponent.openFile(message, 1)
-    
+    });
   }
 
+  public openMessage(message: Message) {
+    this.playerComponent.openFile(message, 1);
+  }
 }

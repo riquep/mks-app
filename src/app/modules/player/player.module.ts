@@ -12,6 +12,7 @@ import { SliderModule } from 'primeng/slider';
 import { ButtonModule } from 'primeng/button';
 
 import { MatSliderModule } from '@angular/material/slider';
+import { MatButtonModule } from '@angular/material/button';
 
 @NgModule({
   declarations: [PlayerComponent],
@@ -21,6 +22,7 @@ import { MatSliderModule } from '@angular/material/slider';
     SliderModule,
     ButtonModule,
     MatSliderModule,
+    ButtonModule,
   ],
   exports: [PlayerComponent],
 })
